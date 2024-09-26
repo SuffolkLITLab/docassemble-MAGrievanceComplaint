@@ -10,7 +10,7 @@ metadata:
   description: |-
     This interview helps someone in Massachusetts write a Grievance Complaint.
   can_I_use_this_form: |
-    If you are a tenant in public housing, you can use this interview to write a grievance complaint.
+    If you are a tenant in public housing, you can use this interview to write a grievance complaint. If you have received a notice that the housing authority is taking some action against you, your    request for a grievance must be in writing. This is true for both state and federal public housing.  
   before_you_start: |
     This interview will help you write a Grievance Complaint.
     
@@ -23,8 +23,10 @@ metadata:
     When you are finished, you will need to:
     
     1. Download your complaint
-    2. Print your complaint
-    3. Deliver your complaint to your housing authority office
+    2. Print and sign your complaint
+    3. Make a copy of your complaint
+    4. Deliver your complaint to your housing authority office  
+    
   maturity: production
   estimated_completion_minutes: 60
   estimated_completion_delta: 30
@@ -135,7 +137,7 @@ subquestion: |
   2. Print your complaint
   3. Deliver your complaint to your housing authority office
 
-  If you are a tenant in public housing, you can use this interview to write a grievance complaint.
+  If you are a tenant in public housing, you can use this interview to write a grievance complaint. If you have received a notice that the housing authority is taking some action against you, your    request for a grievance must be in writing. This is true for both state and federal public housing. 
 
   Most people take about 15 minutes to complete this interview.
 ---
@@ -143,7 +145,7 @@ id: Action Requested
 question: |
   Action Requested
 subquestion: |
-  What action do you want the housing authority to take to remedy your complaint?
+   Please write down what action you would like the Authority to take to resolve your complaint. Please be as specific as possible. Read the grievance procedure to see how much detail is needed. In your grievance, it is important that you state how you want the housing authority to solve the problem.
 fields:
   - "Action requested": action_requested
 ---
@@ -151,7 +153,7 @@ id: Complaint Facts
 question: |
   Complaint Facts
 subquestion: |
-  Write out the facts that apply to your complaint.
+  Include all the facts that relate to your complaint. Attach additional sheets if necessary. In your grievance it is important to state why you disagree with the action proposed by the housing     authority. Read the grievance procedure to see how much detail is needed. It might be enough to simply state that you disagree with the housing authority’s proposed eviction of you, but more might be needed.
 fields:
   - "Complaint facts": complaint_facts
 ---

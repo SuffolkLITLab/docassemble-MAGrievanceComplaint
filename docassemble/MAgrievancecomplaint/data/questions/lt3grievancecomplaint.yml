@@ -10,15 +10,27 @@ metadata:
   description: |-
     This interview helps someone in Massachusetts write a Grievance Complaint.
   can_I_use_this_form: |
-    If you are a tenant in public housing, you can use this interview to write a grievance complaint. If you have received a notice that the housing authority is taking some action against you, your    request for a grievance must be in writing. This is true for both state and federal public housing.  
+    If someone in your household
+      
+    - Physically harmed, harassed, or threatened
+      
+    - Destroyed, vandalized, or stole property
+      
+    - Kept a weapon or explosive device on or next to the property
+      
+    - Possessed, sold, or distributed drugs on the property (not including marijuana)
+      
+    - Engaged in criminal conduct
+   
+    ... to a tenant, housing authority employee, or guest
+   
+    Then, you will not be able to use this form. 
   before_you_start: |
     This interview will help you write a Grievance Complaint.
     
     Before you get started, please gather:
     
     1. Your address
-    2. The facts of your complaint
-    3. The action you are requesting 
     
     When you are finished, you will need to:
     
@@ -116,46 +128,72 @@ code: |
           "reached_interview_end": True,
       },
   )
-  lt3grievancecomplaint_download
+  lt3grievancecomplaint_download 
 ---
 id: Grievance_Complaint
 continue button field: lt3grievancecomplaint_intro
 question: |
-  Grievance Complaint
+  Grievance complaint
 subquestion: |
   This interview will help you write a Grievance Complaint.
   
-  Before you get started, please gather:
-  
-  1. Your address
-  2. The facts of your complaint
-  3. The action you are requesting 
+  Before you get started, please gather your address.
   
   When you are finished, you will need to:
   
-  1. Download your complaint
-  2. Print your complaint
-  3. Deliver your complaint to your housing authority office
+  1. Download, print, and sign your complaint
+  2. Deliver your complaint to your housing authority office
 
-  If you are a tenant in public housing, you can use this interview to write a grievance complaint. If you have received a notice that the housing authority is taking some action against you, your    request for a grievance must be in writing. This is true for both state and federal public housing. 
+  If you are a tenant in public housing, you can use this interview to write a grievance complaint. 
+  
+  If someone in your household did one of the following to a tenant, staff member, or the housing authority board, then you will not be able to use this form. If any of the situations below are true, then please refer to https://masslegalhelp.org for further assistance.
+      
+    - Physically harmed, harassed, or threatened
+      
+    - Destroyed, vandalized, or stole property
+      
+    - Kept a weapon or explosive device on or next to the property
+      
+    - Possessed, sold, or distributed drugs on the property (not including marijuana)
+      
+    - Engaged in criminal conduct
 
   Most people take about 15 minutes to complete this interview.
 ---
-id: Action Requested
+id: Action requested
 question: |
-  Action Requested
+  Action requested
 subquestion: |
-   Please write down what action you would like the Authority to take to resolve your complaint. Please be as specific as possible. Read the grievance procedure to see how much detail is needed. In your grievance, it is important that you state how you want the housing authority to solve the problem.
+   What can the housing authority do to resolve your complaint? 
 fields:
-  - "Action requested": action_requested
+  "How can the housing authority resolve your complaint?": action_requested
+  datatype: area
 ---
-id: Complaint Facts
+id: Complaint
 question: |
-  Complaint Facts
+  What is your complaint?
 subquestion: |
-  Include all the facts that relate to your complaint. Attach additional sheets if necessary. In your grievance it is important to state why you disagree with the action proposed by the housing     authority. Read the grievance procedure to see how much detail is needed. It might be enough to simply state that you disagree with the housing authority’s proposed eviction of you, but more might be needed.
+  Here are some examples you can use:
+  
+  - The housing authority sent me a notice taking action against me and I disagree with decision.
+  
+  - Someone in my household has been hurt by something that the housing authority has done or not done.
+  
+  - The housing authority refuses to adjust my rent.
+  
+  - The housing authority does not answer requests for repairs. 
+  
+  - The housing authority is not allowing me to keep a pet.
+  
+  - The staff or housing authority board treats me unfairly. (add specifics to your complaint).
+  
+  - The staff or housing authority board is harassing me (add specifics to your complaint).
+  
+  - staff or housing authority is causing me hardship (add specifics to your complaint).
+  
 fields:
-  - "Complaint facts": complaint_facts
+  - "Copy and paste one of the options above, or type your own complaint": complaint_facts
+    datatype: area
 ---
 id: preview lt3grievancecomplaint
 question: |

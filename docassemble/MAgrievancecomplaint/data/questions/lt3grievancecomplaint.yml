@@ -148,15 +148,15 @@ subquestion: |
   
   If someone in your household did one of the following to a tenant, staff member, or the housing authority board, then you will not be able to use this form. If any of the situations below are true, then please refer to https://masslegalhelp.org for further assistance.
       
-    - Physically harmed, harassed, or threatened
+    - Harmed, harassed, or threatened someone
       
-    - Destroyed, vandalized, or stole property
+    - Destroyed or stole property
       
     - Kept a weapon or explosive device on or next to the property
       
-    - Possessed, sold, or distributed drugs on the property (not including marijuana)
+    - Possessed or sold drugs on the property (not including marijuana)
       
-    - Engaged in criminal conduct
+    - Committed a crime
 
   Most people take about 15 minutes to complete this interview.
 ---
@@ -164,9 +164,9 @@ id: Action requested
 question: |
   Action requested
 subquestion: |
-   What can the housing authority do to resolve your complaint? 
+   What action do you want the housing authority to take? 
 fields:
-  "How can the housing authority resolve your complaint?": action_requested
+  "What would fix the problem?": action_requested
   datatype: area
 ---
 id: Complaint
@@ -189,10 +189,10 @@ subquestion: |
   
   - The staff or housing authority board is harassing me (add specifics to your complaint).
   
-  - staff or housing authority is causing me hardship (add specifics to your complaint).
+  - Staff or housing authority is causing me hardship (add specifics to your complaint).
   
 fields:
-  - "Copy and paste one of the options above, or type your own complaint": complaint_facts
+  - "Copy and paste one of the options above, or type your own complaint.": complaint_facts
     datatype: area
 ---
 id: preview lt3grievancecomplaint

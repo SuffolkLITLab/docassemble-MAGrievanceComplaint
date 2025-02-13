@@ -4,9 +4,9 @@ include:
 ---
 metadata:
   title: >-
-    Grievance Complaint
+    Grievance complaint
   short title: >-
-    Grievance Complaint
+    Grievance complaint
   description: |-
     This interview helps someone in Massachusetts write a Grievance Complaint.
   can_I_use_this_form: |
@@ -26,7 +26,7 @@ metadata:
    
     Then, you will not be able to use this form. 
   before_you_start: |
-    This interview will help you write a Grievance Complaint.
+    This interview will help you write a grievance complaint.
     
     Before you get started, please gather:
     
@@ -130,12 +130,12 @@ code: |
   )
   lt3grievancecomplaint_download 
 ---
-id: Grievance_Complaint
+id: Grievance_complaint
 continue button field: lt3grievancecomplaint_intro
 question: |
   Grievance complaint
 subquestion: |
-  This interview will help you write a Grievance Complaint.
+  This interview will help you write a grievance complaint.
   
   Before you get started, please gather your address.
   
@@ -159,6 +159,8 @@ subquestion: |
     - Committed a crime
 
   Most people take about 15 minutes to complete this interview.
+help: |
+      Visit the [MassLegalHelp website](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/grievances-public-housing) to learn more.
 ---
 id: Action requested
 question: |
@@ -168,6 +170,8 @@ subquestion: |
 fields:
   "What would fix the problem?": action_requested
   datatype: area
+  help: |
+      Visit the [MassLegalHelp website](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/grievances-public-housing) to learn more.
 ---
 id: Complaint
 question: |
@@ -194,6 +198,8 @@ subquestion: |
 fields:
   - "Copy and paste one of the options above, or type your own complaint.": complaint_facts
     datatype: area
+    help: |
+      Visit the [MassLegalHelp website](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/grievances-public-housing) to learn more.
 ---
 id: preview lt3grievancecomplaint
 question: |

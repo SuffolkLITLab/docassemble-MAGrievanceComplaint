@@ -4,9 +4,9 @@ include:
 ---
 metadata:
   title: >-
-    Grievance complaint
+    Tenant in public housing grievance complaint
   short title: >-
-    Grievance complaint
+    Public housing issue
   description: |-
     This interview helps someone in Massachusetts write a Grievance Complaint.
   can_I_use_this_form: |
@@ -108,6 +108,7 @@ code: |
   set_progress(25)
   action_requested
   signature_date
+  signature_fields
   interview_order_lt3grievancecomplaint = True
 ---
 ###################### Main order ######################
@@ -133,32 +134,22 @@ code: |
 id: Grievance_complaint
 continue button field: lt3grievancecomplaint_intro
 question: |
-  Grievance complaint
+  Public housing tenant issue
 subquestion: |
-  This interview will help you write a grievance complaint.
-  
-  Before you get started, please gather your address.
+  If you are a tenant in public housing, you can use this interview to write a grievance complaint, unless you:
+     
+  - Harmed, harassed, or threatened someone,
+  - Destroyed or stole property,
+  - Kept a weapon or explosive device on or next to the property,
+  - Possessed or sold drugs on the property (not including marijuana), or
+  - Committed a crime
+
+  Most people take about 15 minutes to complete this interview.
   
   When you are finished, you will need to:
   
   1. Download, print, and sign your complaint
-  2. Deliver your complaint to your housing authority office
-
-  If you are a tenant in public housing, you can use this interview to write a grievance complaint. 
-  
-  If someone in your household did one of the following to a tenant, staff member, or the housing authority board, then you will not be able to use this form. If any of the situations below are true, then please refer to https://masslegalhelp.org for further assistance.
-      
-    - Harmed, harassed, or threatened someone
-      
-    - Destroyed or stole property
-      
-    - Kept a weapon or explosive device on or next to the property
-      
-    - Possessed or sold drugs on the property (not including marijuana)
-      
-    - Committed a crime
-
-  Most people take about 15 minutes to complete this interview.
+  2. Deliver your complaint to your housing authority office 
 help: |
       Visit the [MassLegalHelp website](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/grievances-public-housing) to learn more.
 ---
@@ -177,29 +168,31 @@ id: Complaint
 question: |
   What is your complaint?
 subquestion: |
-  Here are some examples you can use:
+  **Here are some examples you can use:**
   
   - The housing authority sent me a notice taking action against me and I disagree with decision.
-  
   - Someone in my household has been hurt by something that the housing authority has done or not done.
-  
   - The housing authority refuses to adjust my rent.
-  
   - The housing authority does not answer requests for repairs. 
-  
   - The housing authority is not allowing me to keep a pet.
-  
   - The staff or housing authority board treats me unfairly. (add specifics to your complaint).
-  
   - The staff or housing authority board is harassing me (add specifics to your complaint).
-  
   - Staff or housing authority is causing me hardship (add specifics to your complaint).
-  
 fields:
   - "Copy and paste one of the options above, or type your own complaint.": complaint_facts
     datatype: area
     help: |
-      Visit the [MassLegalHelp website](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/grievances-public-housing) to learn more.
+      Visit the [MassLegalHelp website](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/types-grievances) to learn more.
+    label above field: True
+---
+id: signature_fields
+question: |
+  Sign the form
+Signature: |
+      row_item.signature    
+---
+code: |
+  signature_fields = ['users[0].signature']
 ---
 id: preview lt3grievancecomplaint
 question: |
@@ -216,9 +209,6 @@ subquestion: |
   
   Remember to come back to this window to continue and sign your form.
 continue button field: lt3grievancecomplaint_preview_question    
----
-code: |
-  signature_fields = ['users[0].signature']
 ---
 id: lt3grievancecomplaint review screen
 event: review_lt3grievancecomplaint
@@ -308,6 +298,7 @@ attachment:
   variable name: lt3grievancecomplaint_Post_interview_instructions[i]
   skip undefined: True
   tagged pdf: True
+  signature_fields: ${ users[0].signature }
 ---
 attachment:
   name: lt3grievancecomplaint
@@ -316,6 +307,7 @@ attachment:
   skip undefined: True
   docx template file: lt3grievancecomplaint.docx
   tagged pdf: True
+  signature_fields: ${ users[0].signature }
 
 
 

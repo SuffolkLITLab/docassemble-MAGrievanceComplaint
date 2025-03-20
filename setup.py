@@ -43,10 +43,10 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
                 out.setdefault(package, []).append(prefix+name)
     return out
 
-setup(name='docassemble.MAgrievancecomplaint',
+setup(name='docassemble.MAGrievanceComplaint',
       version='1.0',
       description=('Grievance Complaint'),
-      long_description='# docassemble.Lt3Grievancecomplaint\r\n\r\nGrievance Complaint\r\n\r\n## Author\r\n\r\nJack Brandt\r\n\r\n',
+      long_description='# docassemble.MAGrievanceComplaint\r\n\r\nGrievance Complaint\r\n\r\n## Author\r\n\r\nJack Brandt\r\n\r\n',
       long_description_content_type='text/markdown',
       author='Jack Brandt',
       author_email='john.brandt@su.suffolk.edu',
@@ -55,6 +55,6 @@ setup(name='docassemble.MAgrievancecomplaint',
       packages=find_namespace_packages(),
       install_requires=['docassemble.AssemblyLine>=3.2.0'],
       zip_safe=False,
-      package_data=find_package_data(where='docassemble/MAgrievancecomplaint/', package='docassemble.MAgrievancecomplaint'),
+      package_data=find_package_data(where='docassemble/MAGrievanceComplaint/', package='docassemble.MAGrievanceComplaint'),
      )
 

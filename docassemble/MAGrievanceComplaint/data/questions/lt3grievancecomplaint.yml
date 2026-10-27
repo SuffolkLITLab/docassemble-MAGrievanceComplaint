@@ -159,9 +159,9 @@ question: |
 subquestion: |
    What action do you want the housing authority to take? 
 fields:
-  "What would fix the problem?": action_requested
-  datatype: area
-  help: |
+  - "What would fix the problem?": action_requested
+    datatype: area
+    help: |
       Visit the [MassLegalHelp website](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/grievances-public-housing) to learn more.
 ---
 id: Complaint
@@ -235,6 +235,7 @@ review:
       **Complaint facts**:
       ${ complaint_facts }
 ---
+id: users.revisit
 continue button field: users.revisit
 question: |
   Edit users

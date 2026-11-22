@@ -8,15 +8,53 @@ metadata:
   description: |
     Write a grievance complaint or request a hearing about a Massachusetts
     public housing problem. Explain what happened, ask the housing authority
-    to fix it, and download a letter with next steps. For current tenants,
-    including people challenging a rent charge, repair problem, or other
-    housing authority decision.
+    to fix it, and download a letter with next steps.
+
+    For example, you may want to challenge:
+
+    * A rent calculation or charge you believe is wrong;
+    * Repairs the housing authority has not made;
+    * A transfer request that has not been processed;
+    * A decision about keeping a pet;
+    * Unfair treatment or harassment by housing authority staff; or
+    * Improper sharing or handling of your household's private information.
+
+    You can start a grievance or ask for a hearing after an informal meeting
+    did not solve the problem. This tool is for current public housing tenants
+    raising a problem affecting their own household.
   can_I_use_this_form: |
-    Use this tool if you are a current tenant in Massachusetts public housing
-    and want to raise your own household's problem with the housing authority.
-    It can help with your first request or a hearing request after an informal
-    meeting. It does not appeal a hearing decision, answer an eviction case,
-    or handle housing applications or Section 8 vouchers.
+    Use this tool if you are a current tenant in Massachusetts state or federal
+    public housing and want to challenge something your housing authority did
+    or failed to do. You can raise a problem affecting you or a household member.
+    A complaint about another tenant must concern the housing authority's
+    response, rather than a claim against that tenant directly.
+
+    **If the housing authority is trying to evict you:** Some eviction reasons
+    limit your right to a grievance hearing. This does not automatically prevent
+    you from raising a separate problem, such as an incorrect rent calculation.
+
+    * In state public housing, examples include nonpayment (unless your lease
+      allows a hearing), serious harm or threats, harassment, property damage
+      or theft, unlawful weapons or explosives, certain drug offenses,
+      dangerous criminal conduct, and illegal use of the apartment under
+      nuisance laws. Special rules apply to a guest's conduct and marijuana.
+    * In federal public housing, exclusions can involve threatening criminal
+      activity, violent or drug-related crime, or a household member's felony
+      conviction. These exclusions are not automatic: the housing authority's
+      policy and applicable state protections matter.
+
+    Check your notice, lease, and grievance policy. Read
+    [MassLegalHelp's examples and exceptions](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/types-grievances)
+    or get legal help if you are unsure whether you can have a hearing.
+
+    **This tool does not** appeal a hearing decision, answer an eviction court
+    case, or handle housing applications, vouchers, or a grievance for another
+    household. Some people outside this tool's scope may still have grievance
+    rights under different procedures.
+
+    For eviction court papers, use [MADE](https://www.gbls.org/MADE).
+    For repair problems, [UpToCode](https://uptocode.org/) is another option;
+    you do not need to file a grievance first.
   before_you_start: |
     Have your lease, the housing authority's grievance policy, and any notice
     about the problem nearby. Gather the housing authority's name and address,

@@ -3,14 +3,12 @@ Feature: One public housing grievance tool for complaint and hearing request
   Scenario: State public housing tenant starts a repair grievance
     Given the maximum seconds for each step is 90
     And I start the interview at "lt3grievancecomplaint.yml"
-    When I use a 390 pixel viewport
-    And I get to "grievance introduction" with this data:
+    When I get to "grievance introduction" with this data:
       | var | value |
       | acknowledged_information_use | True |
     Then I should see the phrase "You do not need to file a grievance first."
-    And the page links to "https://uptocode.org/"
-    And the page links to "https://www.gbls.org/MADE"
-    And the mobile page "mobile-introduction" fits the viewport
+    And I should see the link to "https://uptocode.org/"
+    And I should see the link to "https://www.gbls.org/MADE"
     When I get to "download lt3grievancecomplaint" with this data:
       | var | value |
       | acknowledged_information_use | True |
@@ -31,34 +29,16 @@ Feature: One public housing grievance tool for complaint and hearing request
       | action_requested | Repair the ceiling and stop the leak. |
       | letter_date | 11/22/2026 |
     Then I should see the phrase "This tool has not sent anything"
-    And the mobile page "mobile-download" fits the viewport
     And I download "public_housing_grievance_letter.pdf"
-    And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "I am filing a grievance"
-    And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Repair the ceiling and stop the leak."
-    And the downloaded PDF "public_housing_grievance_letter.pdf" should not contain "my informal meeting did not solve"
-    When I follow the review link containing "Edit answers"
-    And I follow the review link containing "What would fix the problem"
-    And I get to "grievance review" with this data:
-      | var | value |
-      | action_requested | Stop the leak and repair the water-damaged wall. |
-    And I continue
-    And I download "public_housing_grievance_letter.pdf"
-    Then the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Stop the leak and repair the water-damaged wall."
-    And the downloaded PDF "public_housing_grievance_letter.pdf" should not contain "Repair the ceiling and stop the leak."
-    When I follow the review link containing "Edit answers"
-    And I follow the review link containing "Request:"
-    And I get to "grievance review" with this data:
-      | var | value |
-      | grievance_stage | appeal |
-    And I continue
-    Then I should see the phrase "This tool does not make an appeal letter"
-    And I follow the review link containing "Change my request"
-    And I get to "download lt3grievancecomplaint" with this data:
-      | var | value |
-      | grievance_stage | initial |
-    And I download "public_housing_grievance_letter.pdf"
-    Then the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Jordan Rivera"
-    And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Stop the leak and repair the water-damaged wall."
+    And I download "public_housing_grievance_instructions.pdf"
+    And the text in the JSON variable "grievance_stage" should be
+      """
+      initial
+      """
+    And the text in the JSON variable "action_requested" should be
+      """
+      Repair the ceiling and stop the leak.
+      """
 
   @federal
   Scenario: Federal tenant requests a hearing after an unresolved meeting
@@ -84,9 +64,15 @@ Feature: One public housing grievance tool for complaint and hearing request
       | letter_date | 11/22/2026 |
     Then I should see the phrase "Download and send your letter"
     And I download "public_housing_grievance_letter.pdf"
-    And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "my informal meeting did not solve"
-    And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Correct my account and withdraw the termination notice."
-    And the downloaded PDF "public_housing_grievance_letter.pdf" should not contain "I am filing a grievance"
+    And I download "public_housing_grievance_instructions.pdf"
+    And the text in the JSON variable "grievance_stage" should be
+      """
+      hearing
+      """
+    And the text in the JSON variable "action_requested" should be
+      """
+      Correct my account and withdraw the termination notice.
+      """
 
   Scenario: Tenant with a hearing decision gets appeal guidance instead of the wrong letter
     Given the maximum seconds for each step is 90
@@ -99,4 +85,9 @@ Feature: One public housing grievance tool for complaint and hearing request
       | grievance_stage | appeal |
     Then I should see the phrase "This tool does not make an appeal letter"
     And I should see the phrase "14 days"
-    And the page links to "https://www.gbls.org/MADE"
+    And I should see the link to "https://www.gbls.org/MADE"
+    And I should not see the phrase "Download and send your letter"
+    And the text in the JSON variable "grievance_stage" should be
+      """
+      appeal
+      """

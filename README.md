@@ -14,7 +14,14 @@ The three scenarios in `docassemble/MAGrievanceComplaint/data/sources/lt3grievan
 
 Run the manual **ALKiln interview tests** GitHub Actions workflow in `.github/workflows/run_form_tests.yml`. It uses the official ALKiln sandbox workflow and a temporary docassemble server; it does not use credentials for a shared server. For other supported methods, use the [official ALKiln setup guide](https://assemblyline.suffolklitlab.org/docs/components/ALKiln/setup/), [writing guide](https://assemblyline.suffolklitlab.org/docs/components/ALKiln/writing/), and [AI interview-testing guide](https://assemblyline.suffolklitlab.org/docs/automated_quality_checks/ai_testing/).
 
-[Manual release checks](tests/SCENARIOS.md) retain the exact PDF text, edited-answer regeneration, draft preservation, 390-pixel mobile layout, and long-narrative checks. Native answer-value and download assertions do not replace these document/layout checks. The former custom Python runner and browser overrides have been removed.
+Before release, check the downloaded documents and layout:
+
+- Confirm each letter has the right names, facts, request, and wording for its stage. Check the signing and delivery instructions and the UpToCode and MADE links.
+- Edit an answer and download again. Confirm the new answer replaces the old one. Change the request to the appeal path and back; confirm the draft is preserved.
+- Check the input, review, and download screens on a narrow phone screen for readable text and usable controls.
+- Use a long problem description and check that all text, addresses, and signing lines remain visible in the PDF.
+
+Successful answer-value and download checks alone do not prove the PDF content or layout is correct.
 
 Run local static readiness with the current DAYamlChecker source. Human legal and publication approval must remain separately documented; a clean static scan is not approval.
 

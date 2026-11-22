@@ -6,63 +6,73 @@ metadata:
   title: Massachusetts public housing grievance complaint and hearing request
   short title: Public housing grievance
   description: |
-    Write a grievance complaint or request a hearing about a Massachusetts
-    public housing problem. Explain what happened, ask the housing authority
-    to fix it, and download a letter with next steps.
+    Make a letter about a problem in Massachusetts public housing.
+    Tell the housing authority what happened. Ask it to fix the problem.
+    Download your letter and learn the next steps.
 
-    For example, you may want to challenge:
+    For example, you may want help with:
 
-    * A rent calculation or charge you believe is wrong;
-    * Repairs the housing authority has not made;
-    * A transfer request that has not been processed;
-    * A decision about keeping a pet;
-    * Unfair treatment or harassment by housing authority staff; or
-    * Improper sharing or handling of your household's private information.
+    * Rent or a charge you think is wrong.
+    * Repairs the housing authority has not made.
+    * A request to move to a new unit that staff have not acted on.
+    * A decision about keeping a pet.
+    * Unfair treatment or harassment by housing authority staff.
+    * Staff sharing or using your household's private facts when they should not.
 
-    You can start a grievance or ask for a hearing after an informal meeting
-    did not solve the problem. This tool is for current public housing tenants
-    raising a problem affecting their own household.
+    A grievance is a complaint to the housing authority, the public agency
+    that rents your home to you. A hearing is a chance to explain the problem
+    to someone who can decide it. You can start a grievance or ask for a
+    hearing after a meeting with staff did not solve the problem.
+    This tool is for people who live in public housing now. The problem must
+    affect you or someone who lives with you.
   can_I_use_this_form: |
-    Use this tool if you are a current tenant in Massachusetts state or federal
-    public housing and want to challenge something your housing authority did
-    or failed to do. You can raise a problem affecting you or a household member.
-    A complaint about another tenant must concern the housing authority's
-    response, rather than a claim against that tenant directly.
+    Use this tool if you rent a home in Massachusetts state or federal public
+    housing. You can complain about something your housing authority did or
+    did not do. The problem can affect you or someone who lives with you.
+    If the problem is with another tenant, focus on the housing authority.
+    Your complaint must be about what it did or did not do. This tool does not make a
+    claim against that tenant.
 
-    **If the housing authority is trying to evict you:** Some eviction reasons
-    limit your right to a grievance hearing. This does not automatically prevent
-    you from raising a separate problem, such as an incorrect rent calculation.
+    **Is the housing authority trying to make you move out (evict you)?**
+    Some reasons for eviction may limit your right to a grievance hearing. You may still be able to raise
+    a different problem, such as rent that was worked out wrong.
 
-    * In state public housing, examples include nonpayment (unless your lease
-      allows a hearing), serious harm or threats, harassment, property damage
-      or theft, unlawful weapons or explosives, certain drug offenses,
-      dangerous criminal conduct, and illegal use of the apartment under
-      nuisance laws. Special rules apply to a guest's conduct and marijuana.
-    * In federal public housing, exclusions can involve threatening criminal
-      activity, violent or drug-related crime, or a household member's felony
-      conviction. These exclusions are not automatic: the housing authority's
-      policy and applicable state protections matter.
+    * In state public housing, one example is not paying rent.
+      Your lease (rental agreement) may still give you a right to a hearing.
+      Other examples are serious harm or threats, harassment, damage, or theft.
+      They also include illegal weapons or explosives, some drug crimes,
+      and dangerous crimes. They also include
+      illegal use of the home under "nuisance" laws. These are laws about
+      certain harmful or illegal uses of a home. Special rules apply to what
+      a guest does and to marijuana.
+    * In federal public housing, examples include threatening, violent, or
+      drug-related crime. They can also include a household member's felony
+      conviction (being found guilty of a serious crime). You do not always
+      lose the right to a hearing for these reasons. The housing authority's
+      rules and your rights under state law matter.
 
     Check your notice, lease, and grievance policy. Read
-    [MassLegalHelp's examples and exceptions](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/types-grievances)
-    or get legal help if you are unsure whether you can have a hearing.
+    [MassLegalHelp's examples and special rules](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/types-grievances)
+    for more details. Get legal help if you do not know whether you can have a hearing.
 
-    **This tool does not** appeal a hearing decision, answer an eviction court
-    case, or handle housing applications, vouchers, or a grievance for another
-    household. Some people outside this tool's scope may still have grievance
-    rights under different procedures.
+    **This tool does not** ask for review of a hearing decision (an appeal).
+    It does not answer an eviction court case.
+    It does not help you apply for housing or deal with vouchers.
+    It cannot make a grievance for someone in another home. If you cannot use this tool, you may still have a right to a
+    grievance hearing. Other housing programs may have different steps.
 
     For eviction court papers, use [MADE](https://www.gbls.org/MADE).
-    For repair problems, [UpToCode](https://uptocode.org/) is another option;
-    you do not need to file a grievance first.
+    For repair problems, [UpToCode](https://uptocode.org/) is another choice.
+    You do not need to file a grievance first.
   before_you_start: |
-    Have your lease, the housing authority's grievance policy, and any notice
-    about the problem nearby. Gather the housing authority's name and address,
-    the facts, and what you want it to do. You can write in your own words.
+    Have your lease (rental agreement) and any notice about the problem nearby.
+    Also have the grievance policy: the housing authority's rules for complaints.
+    Get the housing authority's name and address. Think about what happened
+    and what you want it to do. You can write in your own words.
     Check any deadline now. This tool does not send your letter.
   when_you_are_finished: |
-    Download, read, print, and sign your letter. Deliver it to the housing
-    authority before the deadline. Keep a copy and proof of delivery.
+    Download, read, print, and sign your letter. Send it to the housing
+    authority on time. Keep a copy and proof of when it arrived.
   maturity: testing
   estimated_completion_minutes: 15
   estimated_completion_delta: 5
@@ -102,7 +112,10 @@ code: |
   AL_DEFAULT_STATE = "MA"
   al_form_type = "letter"
   github_repo_name = "docassemble-MAGrievanceComplaint"
-  interview_short_title = "Public housing grievance"
+---
+template: interview_short_title
+content: |
+  Public housing grievance
 ---
 objects:
   - users: ALPeopleList.using(target_number=1)
@@ -134,31 +147,36 @@ code: |
 ---
 id: grievance introduction
 question: |
-  Ask your housing authority to address a problem
+  Ask your housing authority to fix a problem
 subquestion: |
-  A grievance is a complaint about something your housing authority did or
-  failed to do. This tool makes one letter for your current stage:
+  Your housing authority is the public agency that rents your home to you.
+  A grievance is a complaint about something it did or did not do.
+  This tool makes a letter to ask the housing authority to fix a problem.
+
+  A hearing is a chance to explain the problem to someone who can decide it.
+  An informal meeting is a meeting with staff to try to solve the problem
+  without a hearing. You can:
 
   * Start a grievance and ask for a meeting and hearing, or
   * Ask for a hearing after an informal meeting did not solve the problem.
 
   You will review your letter, then print and sign it. Nothing is sent for you.
 
-  **Need repairs?** [UpToCode](https://uptocode.org/) is a free, specialized
-  tool to document problems and ask your landlord, housing inspector, or
-  court for help. It is another option. You do not need to file a grievance first.
+  **Need repairs?** [UpToCode](https://uptocode.org/) is a free tool for repair
+  problems. It helps you keep track of problems and ask your landlord, housing
+  inspector, or court for help. It is another way to get help. You do not need to file a grievance first.
 
   **Have eviction court papers?** Use [MADE](https://www.gbls.org/MADE) for
-  help preparing your court response. This grievance letter does not replace it.
+  help filling out your court papers. This grievance letter does not replace it.
 continue button field: grievance_intro
 ---
 id: grievance scope
 question: |
   Are you a current tenant in Massachusetts public housing?
 subquestion: |
-  Public housing is housing rented to you by a housing authority.
-  Answer no if you rent from a private landlord with a Section 8 voucher,
-  or if you are applying for housing.
+  In public housing, you rent from a housing authority.
+  Answer no if you rent from a private landlord with a Section 8 voucher.
+  Also answer no if you are applying for housing.
 fields:
   - no label: eligible_tenant
     datatype: yesnoradio
@@ -168,8 +186,9 @@ event: outside_scope
 question: |
   This tool covers a different type of housing
 subquestion: |
-  It prepares letters for current Massachusetts public housing tenants about
-  their own household. Other housing programs have different procedures.
+  It makes letters for people who live in Massachusetts public housing now.
+  The problem must affect you or someone who lives with you.
+  Other housing programs work differently.
 
   Read your notice for the deadline and how to challenge the decision.
   [Find housing help](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing).
@@ -180,7 +199,7 @@ buttons:
 ---
 id: housing program
 question: |
-  Is your public housing state or federally funded?
+  Does your public housing get state or federal funds?
 subquestion: |
   Your lease or housing authority can tell you. You can continue if you do not know.
 fields:
@@ -207,23 +226,26 @@ event: appeal_guidance
 question: |
   Use the appeal instructions for your decision
 subquestion: |
-  This tool does not prepare an appeal. An appeal has different deadlines
-  and may go to a different person or agency.
+  This tool does not make an appeal letter. An appeal asks someone to review
+  a decision you disagree with. It has different deadlines and may go to a
+  different person or agency.
 
-  In state public housing, the usual deadline to request review by the
-  housing authority board is 14 days after the hearing decision is mailed
-  or delivered. Exceptions apply, including some lease termination decisions.
-  Boston Housing Authority uses an administrator instead of a board.
+  In state public housing, you can often ask the board to review the decision.
+  The board is a group that leads the housing authority. You usually have 14 days from when the
+  decision is mailed or given to you. Some rules differ, including for some
+  decisions to end a lease. Boston Housing Authority uses a staff leader
+  instead of a board. This person is called the administrator.
 
   Federal public housing follows different rules. Do not send a federal
-  housing appeal to EOHLC using a state-housing appeal form.
+  housing appeal on a state housing form. Do not send it to EOHLC,
+  the state housing agency.
 
-  [Read about challenging a grievance decision](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/getting-grievance-decision).
+  [Read how to ask for review of a grievance decision](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/getting-grievance-decision).
   [Find the sample appeal letters](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/sample-letters-forms-and-worksheets).
-  Get legal help promptly if a deadline is near.
+  Get legal help right away if a deadline is near.
 
   If you also have an eviction court case, [MADE](https://www.gbls.org/MADE)
-  can help prepare your court response. It does not appeal a grievance decision.
+  can help you fill out your court papers. It does not appeal a grievance decision.
   Do not wait for the grievance appeal before meeting court deadlines.
 
   ${ action_button_html(url_action("grievance_change_stage"), label="Change my request", color="info") }
@@ -232,26 +254,26 @@ buttons:
 ---
 id: eviction issue
 question: |
-  Is the housing authority trying to end your tenancy?
+  Is the housing authority trying to make you move out?
 fields:
   - no label: eviction_issue
     datatype: yesnoradio
 ---
 id: grievance eviction guidance
 question: |
-  Check your notice and get help promptly
+  Check your notice and get help right away
 subquestion: |
-  Some eviction disputes do not qualify for a grievance hearing. The rules
+  You may not have a right to a grievance hearing for some eviction reasons. The rules
   depend on your housing program, lease, grievance policy, and the reason
   for eviction. This tool does not decide whether you have a right to a hearing.
 
   You can still use it to ask for a hearing. Read
-  [which disputes can be grieved](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/types-grievances)
-  and seek legal help promptly.
+  [which problems can have a grievance hearing](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/types-grievances)
+  and get legal help right away.
 
   This letter does not answer an eviction court case. If you have eviction
-  court papers, use [MADE](https://www.gbls.org/MADE) to help prepare your
-  court response. Do not miss a court date or deadline while waiting for
+  court papers, use [MADE](https://www.gbls.org/MADE) to help fill out your
+  court forms. Do not miss a court date or deadline while waiting for
   the housing authority.
 continue button field: eviction_guidance
 ---
@@ -260,34 +282,36 @@ question: |
   Check the deadline before you send your letter
 subquestion: |
   Look at your notice, lease, and housing authority's grievance policy.
-  Send your request promptly. Do not wait for this tool to calculate a deadline.
+  Ask for help right away. This tool will not work out the deadline for you.
 
   % if housing_program == "state" and grievance_stage == "initial":
-  If your lease and grievance policy do not give a deadline, state rules
-  generally allow 7 days after a lease termination notice, or 14 days for
-  a rent notice or another problem. For another problem, time runs from
-  when you knew or should have known about it.
+  First check your lease and grievance policy for a deadline.
+  If they do not give one, state rules usually allow:
+
+  * 7 days after a notice to end your lease;
+  * 14 days for a rent notice; or
+  * 14 days for another problem, from when you knew or should have known about it.
   % elif housing_program == "state":
-  In state public housing, a hearing generally follows an unresolved informal
-  meeting. This is a follow-up to your existing grievance. Check any notice
+  In state public housing, a hearing usually comes next if the meeting with
+  staff does not solve the problem. You have already filed your grievance. Check any notice
   and your grievance policy for further steps or deadlines.
   % elif housing_program == "federal":
   Federal rules do not set one deadline for every grievance. Check your
   notice and policy. After an informal meeting, follow the written summary's
-  instructions to request a hearing.
+  instructions to ask for a hearing.
   % else:
   Ask the housing authority which rules apply. Some deadlines can be as
   short as 7 days. Do not wait to act while finding out.
   % endif
 
-  If your request may be late, explain why in your letter and ask for more time.
-  The housing authority may not grant it.
+  If your letter may be late, explain why. Ask for more time.
+  The housing authority may say no.
   [Read more about filing a grievance](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/filing-grievance).
 continue button field: grievance_deadlines
 ---
 id: housing authority recipient
 question: |
-  Which housing authority will receive your letter?
+  Which housing authority will you send your letter to?
 subquestion: |
   Use the office listed in your notice or grievance policy.
 fields:
@@ -300,15 +324,15 @@ question: |
   What happened?
 subquestion: |
   Describe the problem in your own words. Include dates and any notice you
-  received. Explain what the housing authority did or did not do and how
-  it affected your household.
+  received. Explain what the housing authority did or did not do.
+  Say how it affected you or someone who lives with you.
 
   % if grievance_stage == "hearing":
-  Include when your informal meeting happened and why the problem is still unresolved.
+  Give the date of your informal meeting and say why it did not solve the problem.
   % endif
 
   If you may be late, explain why and ask for more time. You do not need
-  to share unrelated private details.
+  to share private facts that do not help explain the problem.
 fields:
   - What you want the housing authority to know: complaint_facts
     input type: area
@@ -317,8 +341,9 @@ id: action requested
 question: |
   What would fix the problem?
 subquestion: |
-  For example, ask the housing authority to correct a rent charge, make a
-  repair, or explain a decision. Be specific about what you want.
+  Say what you want the housing authority to do.
+  You could ask it to fix a rent charge, make a repair, or explain a decision.
+  Give details about what you want.
 fields:
   - What you want the housing authority to do: action_requested
     input type: area
@@ -337,7 +362,7 @@ question: |
 subquestion: |
   ${ al_recipient_bundle.as_pdf(key='preview') }
 
-  Check the names, address, facts, and request. You will sign the printed letter.
+  Check the names, address, facts, and what you are asking for. You will sign the printed letter.
 
   ${ action_button_html(url_action('review_lt3grievancecomplaint'), label='Edit answers', color='info') }
 continue button field: lt3grievancecomplaint_preview_question
@@ -358,7 +383,7 @@ review:
       **Request:** ${ {'initial': 'Start a grievance', 'hearing': 'Hearing after an informal meeting', 'appeal': 'Challenge a hearing or appeal decision'}[grievance_stage] }
   - Edit: eviction_issue
     button: |
-      **Housing authority is trying to end your tenancy:** ${ word(yesno(eviction_issue)) }
+      **Housing authority is trying to make you move out:** ${ word(yesno(eviction_issue)) }
   - Edit: users[0].name.first
     button: |
       **Your name:** ${ users[0] }

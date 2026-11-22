@@ -12,7 +12,7 @@ The output has a handwritten signature line. Users review a PDF, download it, pr
 
 See `tests/SCENARIOS.md` and the three ALKiln scenarios in `data/sources`. `tests/run_alkiln.py` uses credentials from the local user's `.docassemblecli`, without copying secrets into the repository. The runner requires a local docassemble installation, ALKiln, Node, and `pdftotext`.
 
-A 390-pixel mobile run checks the introduction and download page for horizontal overflow and verifies the UpToCode and MADE destinations. A synthetic 2,532-word letter with 50 numbered incidents renders over four pages with the complete narrative, request, and signature preserved; representative instructions remain one page.
+A 390-pixel mobile run checks the introduction and download page for horizontal overflow and verifies the UpToCode and MADE destinations. A synthetic roughly 2,500-word letter with 50 numbered incidents renders over four pages with the complete narrative, request, and signature preserved; representative instructions remain one page.
 
 Run local static readiness with the current DAYamlChecker source. Human legal and publication approval must remain separately documented; a clean static scan is not approval.
 
@@ -40,3 +40,7 @@ The project owner approved the integrated initial/hearing-request scope, linked 
 ## Specialized alternatives
 
 The introduction and instructions link [UpToCode](https://uptocode.org/) for repair problems, explicitly explaining that a grievance is not a prerequisite. [MADE](https://www.gbls.org/MADE) is linked for an active eviction court case, including on the grievance-appeal exit; it is not described as a grievance appeal tool. These destinations and their provider descriptions were verified November 22, 2026. MassLegalHelp’s [2025 eviction guide](https://www.masslegalhelp.org/housing-apartments-shelter/eviction/eviction-basics-and-notices-quit) recommends MADE, and its [2025 Protecting Yourself booklet](https://www.masslegalhelp.org/sites/default/files/2025-04/Booklet%201%20Representing%20Yourself%202025.pdf) describes both tools.
+
+## Plain-language pass
+
+The November 22 plain-language pass covers metadata, questions, the letter, and instructions while preserving the examples and scope limits. DAYamlChecker thorough style checking reports no errors or warnings; the remaining informational flags mostly suggest changing the legally correct name “housing authority.” Raw advisory Flesch–Kincaid grades are 5.9 for metadata, 5.8 for screens, and 5.1 for templates. Key legal terms are explained in context. Exact top-4,000 word checks also flag names, inflections, and necessary housing terms; the figures do not certify comprehension. Both letter stages and instructions render on one page in short examples, and a long narrative flows across four pages without losing text.

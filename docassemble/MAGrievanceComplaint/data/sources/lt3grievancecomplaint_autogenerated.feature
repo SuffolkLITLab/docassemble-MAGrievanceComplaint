@@ -35,7 +35,7 @@ Feature: One public housing grievance tool for complaint and hearing request
     And I download "public_housing_grievance_letter.pdf"
     And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "I am filing a grievance"
     And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Repair the ceiling and stop the leak."
-    And the downloaded PDF "public_housing_grievance_letter.pdf" should not contain "my informal meeting did not resolve"
+    And the downloaded PDF "public_housing_grievance_letter.pdf" should not contain "my informal meeting did not solve"
     When I follow the review link containing "Edit answers"
     And I follow the review link containing "What would fix the problem"
     And I get to "grievance review" with this data:
@@ -51,7 +51,7 @@ Feature: One public housing grievance tool for complaint and hearing request
       | var | value |
       | grievance_stage | appeal |
     And I continue
-    Then I should see the phrase "This tool does not prepare an appeal"
+    Then I should see the phrase "This tool does not make an appeal letter"
     And I follow the review link containing "Change my request"
     And I get to "download lt3grievancecomplaint" with this data:
       | var | value |
@@ -84,7 +84,7 @@ Feature: One public housing grievance tool for complaint and hearing request
       | letter_date | 11/22/2026 |
     Then I should see the phrase "Download and send your letter"
     And I download "public_housing_grievance_letter.pdf"
-    And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "my informal meeting did not resolve"
+    And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "my informal meeting did not solve"
     And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Correct my account and withdraw the termination notice."
     And the downloaded PDF "public_housing_grievance_letter.pdf" should not contain "I am filing a grievance"
 
@@ -97,6 +97,6 @@ Feature: One public housing grievance tool for complaint and hearing request
       | eligible_tenant | True |
       | housing_program | state |
       | grievance_stage | appeal |
-    Then I should see the phrase "This tool does not prepare an appeal"
+    Then I should see the phrase "This tool does not make an appeal letter"
     And I should see the phrase "14 days"
     And the page links to "https://www.gbls.org/MADE"

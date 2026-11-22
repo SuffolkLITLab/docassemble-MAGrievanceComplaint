@@ -105,6 +105,13 @@ subquestion: |
   * Ask for a hearing after an informal meeting did not solve the problem.
 
   You will review your letter, then print and sign it. Nothing is sent for you.
+
+  **Need repairs?** [UpToCode](https://uptocode.org/) is a free, specialized
+  tool to document problems and ask your landlord, housing inspector, or
+  court for help. It is another option. You do not need to file a grievance first.
+
+  **Have eviction court papers?** Use [MADE](https://www.gbls.org/MADE) for
+  help preparing your court response. This grievance letter does not replace it.
 continue button field: grievance_intro
 ---
 id: grievance scope
@@ -177,6 +184,10 @@ subquestion: |
   [Find the sample appeal letters](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/sample-letters-forms-and-worksheets).
   Get legal help promptly if a deadline is near.
 
+  If you also have an eviction court case, [MADE](https://www.gbls.org/MADE)
+  can help prepare your court response. It does not appeal a grievance decision.
+  Do not wait for the grievance appeal before meeting court deadlines.
+
   ${ action_button_html(url_action("grievance_change_stage"), label="Change my request", color="info") }
 buttons:
   - Start over: restart
@@ -200,8 +211,10 @@ subquestion: |
   [which disputes can be grieved](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/types-grievances)
   and seek legal help promptly.
 
-  This letter does not answer an eviction court case. Do not miss a court
-  date or deadline while waiting for the housing authority.
+  This letter does not answer an eviction court case. If you have eviction
+  court papers, use [MADE](https://www.gbls.org/MADE) to help prepare your
+  court response. Do not miss a court date or deadline while waiting for
+  the housing authority.
 continue button field: eviction_guidance
 ---
 id: grievance deadlines

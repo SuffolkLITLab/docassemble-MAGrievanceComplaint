@@ -90,3 +90,16 @@ scope.wait_until_continued=async(state,{url='',id='',post_nav_handlers=null})=>{
  }
  throw Error('No question or URL change after Continue from '+id);
 };
+
+When('I use a 390 pixel viewport', async()=>{
+ await scope.page.setViewport({width:390,height:844,isMobile:true,hasTouch:true});
+});
+Then('the mobile page {string} fits the viewport', async(label)=>{
+ const dimensions=await scope.page.evaluate(()=>({width:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));
+ await scope.page.screenshot({path:path.join(scope.paths.scenario,label+'.png'),fullPage:true});
+ if(dimensions.scroll>dimensions.width+1)throw Error('Horizontal page overflow: '+JSON.stringify(dimensions));
+});
+Then('the page links to {string}', async(url)=>{
+ const found=await scope.page.$$eval('#daquestion a',(links,url)=>links.some(a=>a.href===url),url);
+ if(!found)throw Error('Missing resource link: '+url);
+});

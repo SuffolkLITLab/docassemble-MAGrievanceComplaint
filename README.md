@@ -12,6 +12,8 @@ The output has a handwritten signature line. Users review a PDF, download it, pr
 
 See `tests/SCENARIOS.md` and the three ALKiln scenarios in `data/sources`. `tests/run_alkiln.py` uses credentials from the local user's `.docassemblecli`, without copying secrets into the repository. The runner requires a local docassemble installation, ALKiln, Node, and `pdftotext`.
 
+A 390-pixel mobile run checks the introduction and download page for horizontal overflow and verifies the UpToCode and MADE destinations. A synthetic 2,532-word letter with 50 numbered incidents renders over four pages with the complete narrative, request, and signature preserved; representative instructions remain one page.
+
 Run local static readiness with the current DAYamlChecker source. Human legal and publication approval must remain separately documented; a clean static scan is not approval.
 
 ## Classification
@@ -34,3 +36,7 @@ Sources checked November 22, 2026. MLRI's guide pages are marked reviewed in 202
 The old interview categorically excluded anyone involved in listed misconduct, even when the grievance was unrelated. The revision instead explains that some eviction disputes may not qualify and directs the user to their notice, lease, policy, and help. It does not decide grievance eligibility. It also removes the unsupported instruction to wait 30 days and then contact DHCD.
 
 The project owner approved the integrated initial/hearing-request scope, linked MassLegalHelp appeal guidance, current-tenant limits, and non-blocking eviction warning on November 22, 2026. This is a scope decision, not a blanket legal or publication checklist attestation. Appeals are linked to the correct instructions rather than guessing a forum or extending the automated scope.
+
+## Specialized alternatives
+
+The introduction and instructions link [UpToCode](https://uptocode.org/) for repair problems, explicitly explaining that a grievance is not a prerequisite. [MADE](https://www.gbls.org/MADE) is linked for an active eviction court case, including on the grievance-appeal exit; it is not described as a grievance appeal tool. These destinations and their provider descriptions were verified November 22, 2026. MassLegalHelp’s [2025 eviction guide](https://www.masslegalhelp.org/housing-apartments-shelter/eviction/eviction-basics-and-notices-quit) recommends MADE, and its [2025 Protecting Yourself booklet](https://www.masslegalhelp.org/sites/default/files/2025-04/Booklet%201%20Representing%20Yourself%202025.pdf) describes both tools.

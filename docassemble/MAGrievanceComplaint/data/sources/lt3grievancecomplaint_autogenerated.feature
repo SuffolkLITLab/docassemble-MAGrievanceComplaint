@@ -3,6 +3,14 @@ Feature: One public housing grievance tool for complaint and hearing request
   Scenario: State public housing tenant starts a repair grievance
     Given the maximum seconds for each step is 90
     And I start the interview at "lt3grievancecomplaint.yml"
+    When I use a 390 pixel viewport
+    And I get to "grievance introduction" with this data:
+      | var | value |
+      | acknowledged_information_use | True |
+    Then I should see the phrase "You do not need to file a grievance first."
+    And the page links to "https://uptocode.org/"
+    And the page links to "https://www.gbls.org/MADE"
+    And the mobile page "mobile-introduction" fits the viewport
     When I get to "download lt3grievancecomplaint" with this data:
       | var | value |
       | acknowledged_information_use | True |
@@ -23,6 +31,7 @@ Feature: One public housing grievance tool for complaint and hearing request
       | action_requested | Repair the ceiling and stop the leak. |
       | letter_date | 11/22/2026 |
     Then I should see the phrase "This tool has not sent anything"
+    And the mobile page "mobile-download" fits the viewport
     And I download "public_housing_grievance_letter.pdf"
     And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "I am filing a grievance"
     And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Repair the ceiling and stop the leak."
@@ -51,6 +60,7 @@ Feature: One public housing grievance tool for complaint and hearing request
     Then the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Jordan Rivera"
     And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Stop the leak and repair the water-damaged wall."
 
+  @federal
   Scenario: Federal tenant requests a hearing after an unresolved meeting
     Given the maximum seconds for each step is 90
     And I start the interview at "lt3grievancecomplaint.yml"
@@ -89,3 +99,4 @@ Feature: One public housing grievance tool for complaint and hearing request
       | grievance_stage | appeal |
     Then I should see the phrase "This tool does not prepare an appeal"
     And I should see the phrase "14 days"
+    And the page links to "https://www.gbls.org/MADE"

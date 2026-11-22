@@ -1,189 +1,91 @@
-Feature: Generated docassemble test
+Feature: One public housing grievance tool for complaint and hearing request
 
-Scenario: Generated scenario
-  Given I start the interview at "lt3grievancecomplaint.yml"
-  And the user gets to "download lt3grievancecomplaint" with this data:
-    | var | value |
-    | acknowledged_information_use | True |
-    | user_ask_role | plaintiff |
-    | user_detailed_role_started_case | started |
-    | user_detailed_role | petitioner |
-    | other_parties.there_are_any | Sample answer |
-    | users[0].name.first | Jane |
-    | users[0].name.last | Smith |
-    | users[0].name.middle | Sample answer |
-    | users[0].name.suffix | Jr. |
-    | x.birthdate | Sample answer |
-    | users[0].address | users[0].address if defined(\"users[0].address.address\") else None |
-    | users[0].address.address | 123 Main St |
-    | users[0].address.city | Boston |
-    | users[0].address.state | MA |
-    | users[0].address.zip | 02108 |
-    | users[0].address.unit | Sample answer |
-    | x.mailing_address | x.address |
-    | x.mailing_address.address | Sample answer |
-    | x.mailing_address.unit | Sample answer |
-    | x.mailing_address.city | Sample answer |
-    | x.mailing_address.state | Sample answer |
-    | x.mailing_address.zip | Sample answer |
-    | x.mailing_address.country | Sample answer |
-    | x.service_address | x.address if defined(x.address.attr_name(\"address\")) else None |
-    | x.service_address.address | Sample answer |
-    | x.service_address.unit | Sample answer |
-    | x.service_address.city | Sample answer |
-    | x.service_address.state | Sample answer |
-    | x.service_address.zip | Sample answer |
-    | x.service_address.country | Sample answer |
-    | x.service_method | Sample answer |
-    | users[0].mobile_number | Sample answer |
-    | users[0].phone_number | 6175551212 |
-    | users[0].email | user@example.com |
-    | users[0].other_contact_method | Sample answer |
-    | dont_know_docket_number | True |
-    | docket_number | Sample answer |
-    | docket_numbers.there_are_any | Sample answer |
-    | docket_numbers[0] | Sample answer |
-    | dont_know_case_number | True |
-    | case_number | Sample answer |
-    | case_numbers.there_are_any | Sample answer |
-    | case_numbers[0] | Sample answer |
-    | x.there_are_any | Sample answer |
-    | witnesses.there_are_any | Sample answer |
-    | x.name.first | Jane |
-    | x.name.last | Smith |
-    | x.name.middle | Sample answer |
-    | x.name.suffix | Jr. |
-    | children.there_are_any | Sample answer |
-    | children.target_number | 1 |
-    | children[0].name.first | Jane |
-    | children[0].name.last | Smith |
-    | children[0].name.middle | Sample answer |
-    | children[0].name.suffix | Jr. |
-    | witnesses.target_number | 1 |
-    | witnesses[0].name.first | Jane |
-    | witnesses[0].name.last | Smith |
-    | witnesses[0].name.middle | Sample answer |
-    | witnesses[0].name.suffix | Jr. |
-    | x[0].name.first | Jane |
-    | x[0].name.last | Smith |
-    | x[0].name.middle | Sample answer |
-    | x[0].name.suffix | Jr. |
-    | other_parties[0].name.first | Jane |
-    | other_parties[0].name.last | Smith |
-    | other_parties[0].name.middle | Sample answer |
-    | other_parties[0].name.suffix | Jr. |
-    | x.address | Sample answer |
-    | x.city | Sample answer |
-    | x.zip | Sample answer |
-    | x.unit | Sample answer |
-    | x.state | Sample answer |
-    | x.country | Sample answer |
-    | x.address.address | 123 Main St |
-    | x.address.city | Boston |
-    | x.address.state | MA |
-    | x.address.zip | 02108 |
-    | x.address.unit | Sample answer |
-    | x.address.country | US |
-    | x.other_addresses.there_are_any | Sample answer |
-    | x.other_addresses[0].address | Sample answer |
-    | x.other_addresses[0].city | Sample answer |
-    | x.previous_addresses.there_are_any | Sample answer |
-    | x.previous_addresses[0].address | Sample answer |
-    | x.previous_addresses[0].city | Sample answer |
-    | users[0].other_addresses.there_are_any | Sample answer |
-    | users[0].other_addresses[0].address | Sample answer |
-    | users[0].other_addresses[0].city | Sample answer |
-    | users[0].previous_addresses.there_are_any | Sample answer |
-    | users[0].previous_addresses[0].address | Sample answer |
-    | users[0].previous_addresses[0].city | Sample answer |
-    | x.phone_number | 6175551212 |
-    | x.mobile_number | Sample answer |
-    | x.home_number | Sample answer |
-    | x.work_number | Sample answer |
-    | x.other_number | Sample answer |
-    | x.fax_number | Sample answer |
-    | x.email | user@example.com |
-    | attorneys[0].id_number | Sample answer |
-    | signature_date | 01/02/2026 |
-    | x.gender | female |
-    | user_needs_interpreter | Sample answer |
-    | user_preferred_language | Sample answer |
-    | users[0].states_above_true['states_true'] | True |
-    | users[0].marital_status | married |
-    | x.marital_status | married |
-    | users[0].has_spouse | Sample answer |
-    | x.has_spouse | Sample answer |
-    | trial_court_name | Sample answer |
-    | appeals_court_name | Sample answer |
-    | signature_choice | this_device |
-    | x.typed_signature | Sample answer |
-    | signature_wait_screen | Sample answer |
-    | text_link | True |
-    | link_cell | Sample answer |
-    | signature_phone_followup | Sample answer |
-    | comments_to_clerk | Sample answer |
-    | should_cc_user | True |
-    | cc_email | Sample answer |
-    | x.has_exhibits | Sample answer |
-    | x[0].title | Sample answer |
-    | x[0].pages | Sample answer |
-    | x[0].pages[0] | Sample answer |
-    | x[0].pages[0].initialized | Sample answer |
-    | x[0].pages[0].mimetype | Sample answer |
-    | x[0].pages[0].ok | Sample answer |
-    | x.has_no_file | True |
-    | x.file | Sample answer |
-    | users[0].language | en |
-    | x.language | en |
-    | users[0].preferred_name.first | Sample answer |
-    | users[0].preferred_name.middle | Sample answer |
-    | users[0].preferred_name.last | Sample answer |
-    | users[0].preferred_name.suffix | Sample answer |
-    | children[0].preferred_name.first | Sample answer |
-    | children[0].preferred_name.middle | Sample answer |
-    | children[0].preferred_name.last | Sample answer |
-    | children[0].preferred_name.suffix | Sample answer |
-    | x.preferred_name.first | Sample answer |
-    | x.preferred_name.middle | Sample answer |
-    | x.preferred_name.last | Sample answer |
-    | x.preferred_name.suffix | Sample answer |
-    | users[0].previous_names.there_are_any | Sample answer |
-    | children[0].previous_names.there_are_any | Sample answer |
-    | x.previous_names.there_are_any | Sample answer |
-    | users[0].previous_names[0].first | Sample answer |
-    | users[0].previous_names[0].middle | Sample answer |
-    | users[0].previous_names[0].last | Sample answer |
-    | users[0].previous_names[0].suffix | Sample answer |
-    | children[0].previous_names[0].first | Sample answer |
-    | children[0].previous_names[0].middle | Sample answer |
-    | children[0].previous_names[0].last | Sample answer |
-    | children[0].previous_names[0].suffix | Sample answer |
-    | x.previous_names[0].first | Sample answer |
-    | x.previous_names[0].middle | Sample answer |
-    | x.previous_names[0].last | Sample answer |
-    | x.previous_names[0].suffix | Sample answer |
-    | users[0].aliases.there_are_any | Sample answer |
-    | x.aliases.there_are_any | Sample answer |
-    | users[0].aliases[0].first | Sample answer |
-    | users[0].aliases[0].middle | Sample answer |
-    | users[0].aliases[0].last | Sample answer |
-    | users[0].aliases[0].suffix | Sample answer |
-    | x.aliases[0].first | Sample answer |
-    | x.aliases[0].middle | Sample answer |
-    | x.aliases[0].last | Sample answer |
-    | x.aliases[0].suffix | Sample answer |
-    | users[0].pronouns | Sample answer |
-    | x.pronouns | Sample answer |
-    | complaint_facts | Sample answer |
-    | github_repo_name | docassemble-Lt3Grievancecomplaint |
-    | interview_short_title | Write a Grievance Complaint |
-    | user_role | plaintiff |
-    | users.target_number | 1 |
-    | action_requested | Sample answer |
-    | signature_fields | Sample answer |
-    | interview_order_lt3grievancecomplaint | True |
-    | lt3grievancecomplaint_intro | Sample answer |
-    | lt3grievancecomplaint_download | Sample answer |
-    | lt3grievancecomplaint_intro | True |
-    | lt3grievancecomplaint_preview_question | True |
-    | users.revisit | True |
+  Scenario: State public housing tenant starts a repair grievance
+    Given the maximum seconds for each step is 90
+    And I start the interview at "lt3grievancecomplaint.yml"
+    When I get to "download lt3grievancecomplaint" with this data:
+      | var | value |
+      | acknowledged_information_use | True |
+      | eligible_tenant | True |
+      | housing_program | state |
+      | grievance_stage | initial |
+      | eviction_issue | False |
+      | users[0].name.first | Jordan |
+      | users[0].name.last | Rivera |
+      | users[0].address.address | 10 Main Street |
+      | users[0].address.unit | 2 |
+      | users[0].address.city | Boston |
+      | users[0].address.state | MA |
+      | users[0].address.zip | 02108 |
+      | housing_authority_name | Example Housing Authority |
+      | housing_authority_address | 20 Main Street, Boston, MA 02108 |
+      | complaint_facts | I reported a leaking ceiling on November 10. It is still leaking. |
+      | action_requested | Repair the ceiling and stop the leak. |
+      | letter_date | 11/22/2026 |
+    Then I should see the phrase "This tool has not sent anything"
+    And I download "public_housing_grievance_letter.pdf"
+    And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "I am filing a grievance"
+    And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Repair the ceiling and stop the leak."
+    And the downloaded PDF "public_housing_grievance_letter.pdf" should not contain "my informal meeting did not resolve"
+    When I follow the review link containing "Edit answers"
+    And I follow the review link containing "What would fix the problem"
+    And I get to "grievance review" with this data:
+      | var | value |
+      | action_requested | Stop the leak and repair the water-damaged wall. |
+    And I continue
+    And I download "public_housing_grievance_letter.pdf"
+    Then the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Stop the leak and repair the water-damaged wall."
+    And the downloaded PDF "public_housing_grievance_letter.pdf" should not contain "Repair the ceiling and stop the leak."
+    When I follow the review link containing "Edit answers"
+    And I follow the review link containing "Request:"
+    And I get to "grievance review" with this data:
+      | var | value |
+      | grievance_stage | appeal |
+    And I continue
+    Then I should see the phrase "This tool does not prepare an appeal"
+    And I follow the review link containing "Change my request"
+    And I get to "download lt3grievancecomplaint" with this data:
+      | var | value |
+      | grievance_stage | initial |
+    And I download "public_housing_grievance_letter.pdf"
+    Then the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Jordan Rivera"
+    And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Stop the leak and repair the water-damaged wall."
+
+  Scenario: Federal tenant requests a hearing after an unresolved meeting
+    Given the maximum seconds for each step is 90
+    And I start the interview at "lt3grievancecomplaint.yml"
+    When I get to "download lt3grievancecomplaint" with this data:
+      | var | value |
+      | acknowledged_information_use | True |
+      | eligible_tenant | True |
+      | housing_program | federal |
+      | grievance_stage | hearing |
+      | eviction_issue | True |
+      | users[0].name.first | Taylor |
+      | users[0].name.last | Chen |
+      | users[0].address.address | 30 Oak Street |
+      | users[0].address.city | Worcester |
+      | users[0].address.state | MA |
+      | users[0].address.zip | 01608 |
+      | housing_authority_name | Example Housing Authority |
+      | housing_authority_address | 40 Oak Street, Worcester, MA 01608 |
+      | complaint_facts | At our November 20 meeting, I showed my rent receipts. The authority still says rent is unpaid. |
+      | action_requested | Correct my account and withdraw the termination notice. |
+      | letter_date | 11/22/2026 |
+    Then I should see the phrase "Download and send your letter"
+    And I download "public_housing_grievance_letter.pdf"
+    And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "my informal meeting did not resolve"
+    And the downloaded PDF "public_housing_grievance_letter.pdf" should contain "Correct my account and withdraw the termination notice."
+    And the downloaded PDF "public_housing_grievance_letter.pdf" should not contain "I am filing a grievance"
+
+  Scenario: Tenant with a hearing decision gets appeal guidance instead of the wrong letter
+    Given the maximum seconds for each step is 90
+    And I start the interview at "lt3grievancecomplaint.yml"
+    When I get to "grievance appeal guidance" with this data:
+      | var | value |
+      | acknowledged_information_use | True |
+      | eligible_tenant | True |
+      | housing_program | state |
+      | grievance_stage | appeal |
+    Then I should see the phrase "This tool does not prepare an appeal"
+    And I should see the phrase "14 days"

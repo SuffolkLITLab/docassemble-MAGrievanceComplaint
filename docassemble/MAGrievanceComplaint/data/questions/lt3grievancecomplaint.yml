@@ -3,312 +3,370 @@ include:
   - docassemble.AssemblyLine:assembly_line.yml
 ---
 metadata:
-  title: >-
-    Tenant in public housing grievance complaint
-  short title: >-
-    Public housing issue
-  description: |-
-    This interview helps someone in Massachusetts write a Grievance Complaint.
+  title: Massachusetts public housing grievance complaint and hearing request
+  short title: Public housing grievance
+  description: |
+    Write a grievance complaint or request a hearing about a Massachusetts
+    public housing problem. Explain what happened, ask the housing authority
+    to fix it, and download a letter with next steps. For current tenants,
+    including people challenging a rent charge, repair problem, or other
+    housing authority decision.
   can_I_use_this_form: |
-    If someone in your household
-      
-    - Physically harmed, harassed, or threatened
-      
-    - Destroyed, vandalized, or stole property
-      
-    - Kept a weapon or explosive device on or next to the property
-      
-    - Possessed, sold, or distributed drugs on the property (not including marijuana)
-      
-    - Engaged in criminal conduct
-   
-    ... to a tenant, housing authority employee, or guest
-   
-    Then, you will not be able to use this form. 
+    Use this tool if you are a current tenant in Massachusetts public housing
+    and want to raise your own household's problem with the housing authority.
+    It can help with your first request or a hearing request after an informal
+    meeting. It does not appeal a hearing decision, answer an eviction case,
+    or handle housing applications or Section 8 vouchers.
   before_you_start: |
-    This interview will help you write a grievance complaint.
-    
-    Before you get started, please gather:
-    
-    1. Your address
-    
-    When you are finished, you will need to:
-    
-    1. Download your complaint
-    2. Print and sign your complaint
-    3. Make a copy of your complaint
-    4. Deliver your complaint to your housing authority office  
-    
-  maturity: production
-  estimated_completion_minutes: 60
-  estimated_completion_delta: 30
-  LIST_topics: 
-    - "HO-00-00-00-00"
-    - "HO-03-00-00-00"
+    Have your lease, the housing authority's grievance policy, and any notice
+    about the problem nearby. Gather the housing authority's name and address,
+    the facts, and what you want it to do. You can write in your own words.
+    Check any deadline now. This tool does not send your letter.
+  when_you_are_finished: |
+    Download, read, print, and sign your letter. Deliver it to the housing
+    authority before the deadline. Keep a copy and proof of delivery.
+  maturity: testing
+  estimated_completion_minutes: 15
+  estimated_completion_delta: 5
+  LIST_topics:
+    - HO-03-02-00-00
+    - CO-04-00-00-00
   tags:
-    - "HO-00-00-00-00"
-    - "HO-03-00-00-00"
+    - HO-03-02-00-00
+    - CO-04-00-00-00
   authors:
     - Jack Brandt
-  original_form: []
-  original_form_published_on: ""
-  help_page_url: >-
-    https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/sample-letters-forms-and-worksheets
-  help_page_title: >-
-    MassLegalHelp
+    - Suffolk LIT Lab
+  original_form:
+    - https://www.masslegalhelp.org/sites/default/files/documents/housing/Sample-Letter-to-Request-a-Grievance-Hearing.rtf
+    - https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/sample-letters-forms-and-worksheets
+  help_page_url: https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/grievances-public-housing
+  help_page_title: Public housing grievance rights and steps
   allowed_courts: []
-  typical_role: "plaintiff"
-  al_weaver_version: "1.10.3"
-  generated_on: "2024-09-05"
+  typical_role: na
   languages:
     - en
   jurisdiction: NAM-US-US+MA
-  review_date: 2024-09-05
   form_titles:
-    - Grievance Complaint
+    - Public housing grievance complaint or hearing request
   form_numbers: []
+  efiling_enabled: false
+  integrated_efiling: false
+  integrated_email_filing: false
+  requires_notarization: false
   update_notes: |
+    November 2026 release candidate combines the initial grievance and
+    hearing-request paths. Appeals are linked, not prepared. Legal approval
+    and end-to-end validation are tracked outside this metadata.
 ---
 code: |
-  # This controls the default country and list of states in address field questions
   AL_DEFAULT_COUNTRY = "US"
----
-code: |
-  # This controls the default state in address field questions
   AL_DEFAULT_STATE = "MA"
----
-code: |
-  github_repo_name =  'docassemble-Lt3Grievancecomplaint'
----
-code: |
-  interview_short_title = "Write a Grievance Complaint"
----
-code: |
-  al_form_type = "letter" 
+  al_form_type = "letter"
+  github_repo_name = "docassemble-MAGrievanceComplaint"
+  interview_short_title = "Public housing grievance"
 ---
 objects:
-  - users: ALPeopleList.using(there_are_any=True)
+  - users: ALPeopleList.using(target_number=1)
 ---
 sections:
   - review_lt3grievancecomplaint: Review your answers
 ---
-#################### Interview order #####################
-comment: |
-  Controls order and branching logic for questions specific to this form
-id: interview_order_lt3grievancecomplaint
-code: |
-  # Set the allowed courts for this interview
-  nav.set_section("review_lt3grievancecomplaint")
-  user_role = "plaintiff"
-  user_ask_role = "plaintiff"
-  users.gather()
-  set_parts(subtitle=str(users))
-  users[0].address.address
-  complaint_facts
-  set_progress(25)
-  action_requested
-  signature_date
-  signature_fields
-  interview_order_lt3grievancecomplaint = True
----
-###################### Main order ######################
-comment: |
-  This block includes the logic for standalone interviews.
-  Delete mandatory: True to include in another interview
 mandatory: True
 code: |
   al_intro_screen
-  lt3grievancecomplaint_intro
-  interview_order_lt3grievancecomplaint
-  signature_date
-  # Store anonymous data for analytics / statistics
-  store_variables_snapshot(
-      persistent=True,
-      data={
-          "zip": showifdef("users[0].address.zip"),
-          "reached_interview_end": True,
-      },
-  )
-  lt3grievancecomplaint_download 
+  grievance_intro
+  if not eligible_tenant:
+    outside_scope
+  housing_program
+  if grievance_stage == "appeal":
+    appeal_guidance
+  eviction_issue
+  if eviction_issue:
+    eviction_guidance
+  grievance_deadlines
+  users[0].name.first
+  users[0].address.address
+  housing_authority_name
+  complaint_facts
+  action_requested
+  letter_date
+  lt3grievancecomplaint_preview_question
+  lt3grievancecomplaint_download
 ---
-id: Grievance_complaint
-continue button field: lt3grievancecomplaint_intro
+id: grievance introduction
 question: |
-  Public housing tenant issue
+  Ask your housing authority to address a problem
 subquestion: |
-  If you are a tenant in public housing, you can use this interview to write a grievance complaint, unless you:
-     
-  - Harmed, harassed, or threatened someone,
-  - Destroyed or stole property,
-  - Kept a weapon or explosive device on or next to the property,
-  - Possessed or sold drugs on the property (not including marijuana), or
-  - Committed a crime
+  A grievance is a complaint about something your housing authority did or
+  failed to do. This tool makes one letter for your current stage:
 
-  Most people take about 15 minutes to complete this interview.
-  
-  When you are finished, you will need to:
-  
-  1. Download, print, and sign your complaint
-  2. Deliver your complaint to your housing authority office 
-help: |
-      Visit the [MassLegalHelp website](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/grievances-public-housing) to learn more.
+  * Start a grievance and ask for a meeting and hearing, or
+  * Ask for a hearing after an informal meeting did not solve the problem.
+
+  You will review your letter, then print and sign it. Nothing is sent for you.
+continue button field: grievance_intro
 ---
-id: Action requested
+id: grievance scope
 question: |
-  Action requested
+  Are you a current tenant in Massachusetts public housing?
 subquestion: |
-   What action do you want the housing authority to take? 
+  Public housing is housing rented to you by a housing authority.
+  Answer no if you rent from a private landlord with a Section 8 voucher,
+  or if you are applying for housing.
 fields:
-  - "What would fix the problem?": action_requested
-    datatype: area
-    help: |
-      Visit the [MassLegalHelp website](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/grievances-public-housing) to learn more.
+  - no label: eligible_tenant
+    datatype: yesnoradio
 ---
-id: Complaint
+id: outside grievance scope
+event: outside_scope
 question: |
-  What is your complaint?
+  This tool covers a different type of housing
 subquestion: |
-  **Here are some examples you can use:**
-  
-  - The housing authority sent me a notice taking action against me and I disagree with decision.
-  - Someone in my household has been hurt by something that the housing authority has done or not done.
-  - The housing authority refuses to adjust my rent.
-  - The housing authority does not answer requests for repairs. 
-  - The housing authority is not allowing me to keep a pet.
-  - The staff or housing authority board treats me unfairly. (add specifics to your complaint).
-  - The staff or housing authority board is harassing me (add specifics to your complaint).
-  - Staff or housing authority is causing me hardship (add specifics to your complaint).
+  It prepares letters for current Massachusetts public housing tenants about
+  their own household. Other housing programs have different procedures.
+
+  Read your notice for the deadline and how to challenge the decision.
+  [Find housing help](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing).
+
+  ${ action_button_html(url_action("grievance_change_housing"), label="Change my housing answer", color="info") }
+buttons:
+  - Start over: restart
+---
+id: housing program
+question: |
+  Is your public housing state or federally funded?
+subquestion: |
+  Your lease or housing authority can tell you. You can continue if you do not know.
 fields:
-  - "Copy and paste one of the options above, or type your own complaint.": complaint_facts
-    datatype: area
-    help: |
-      Visit the [MassLegalHelp website](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/types-grievances) to learn more.
-    label above field: True
+  - Housing program: housing_program
+    input type: radio
+    choices:
+      - State public housing: state
+      - Federal public housing: federal
+      - I do not know: unknown
 ---
-id: signature_fields
+id: grievance stage
 question: |
-  Sign the form
-Signature: |
-      row_item.signature    
+  What do you need to do now?
+fields:
+  - no label: grievance_stage
+    input type: radio
+    choices:
+      - Start a grievance: initial
+      - Request a hearing after an informal meeting: hearing
+      - Challenge a hearing or appeal decision: appeal
 ---
-code: |
-  signature_fields = ['users[0].signature']
----
-id: preview lt3grievancecomplaint
+id: grievance appeal guidance
+event: appeal_guidance
 question: |
-  Preview your form before you sign it
+  Use the appeal instructions for your decision
 subquestion: |
-  Here is a preview of the form you will sign on the next page.   
-  
+  This tool does not prepare an appeal. An appeal has different deadlines
+  and may go to a different person or agency.
+
+  In state public housing, the usual deadline to request review by the
+  housing authority board is 14 days after the hearing decision is mailed
+  or delivered. Exceptions apply, including some lease termination decisions.
+  Boston Housing Authority uses an administrator instead of a board.
+
+  Federal public housing follows different rules. Do not send a federal
+  housing appeal to EOHLC using a state-housing appeal form.
+
+  [Read about challenging a grievance decision](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/getting-grievance-decision).
+  [Find the sample appeal letters](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/sample-letters-forms-and-worksheets).
+  Get legal help promptly if a deadline is near.
+
+  ${ action_button_html(url_action("grievance_change_stage"), label="Change my request", color="info") }
+buttons:
+  - Start over: restart
+---
+id: eviction issue
+question: |
+  Is the housing authority trying to end your tenancy?
+fields:
+  - no label: eviction_issue
+    datatype: yesnoradio
+---
+id: grievance eviction guidance
+question: |
+  Check your notice and get help promptly
+subquestion: |
+  Some eviction disputes do not qualify for a grievance hearing. The rules
+  depend on your housing program, lease, grievance policy, and the reason
+  for eviction. This tool does not decide whether you have a right to a hearing.
+
+  You can still use it to ask for a hearing. Read
+  [which disputes can be grieved](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/types-grievances)
+  and seek legal help promptly.
+
+  This letter does not answer an eviction court case. Do not miss a court
+  date or deadline while waiting for the housing authority.
+continue button field: eviction_guidance
+---
+id: grievance deadlines
+question: |
+  Check the deadline before you send your letter
+subquestion: |
+  Look at your notice, lease, and housing authority's grievance policy.
+  Send your request promptly. Do not wait for this tool to calculate a deadline.
+
+  % if housing_program == "state" and grievance_stage == "initial":
+  If your lease and grievance policy do not give a deadline, state rules
+  generally allow 7 days after a lease termination notice, or 14 days for
+  a rent notice or another problem. For another problem, time runs from
+  when you knew or should have known about it.
+  % elif housing_program == "state":
+  In state public housing, a hearing generally follows an unresolved informal
+  meeting. This is a follow-up to your existing grievance. Check any notice
+  and your grievance policy for further steps or deadlines.
+  % elif housing_program == "federal":
+  Federal rules do not set one deadline for every grievance. Check your
+  notice and policy. After an informal meeting, follow the written summary's
+  instructions to request a hearing.
+  % else:
+  Ask the housing authority which rules apply. Some deadlines can be as
+  short as 7 days. Do not wait to act while finding out.
+  % endif
+
+  If your request may be late, explain why in your letter and ask for more time.
+  The housing authority may not grant it.
+  [Read more about filing a grievance](https://www.masslegalhelp.org/housing-apartments-shelter/public-subsidized-housing/filing-grievance).
+continue button field: grievance_deadlines
+---
+id: housing authority recipient
+question: |
+  Which housing authority will receive your letter?
+subquestion: |
+  Use the office listed in your notice or grievance policy.
+fields:
+  - Housing authority name: housing_authority_name
+  - Mailing address: housing_authority_address
+    input type: area
+---
+id: complaint facts
+question: |
+  What happened?
+subquestion: |
+  Describe the problem in your own words. Include dates and any notice you
+  received. Explain what the housing authority did or did not do and how
+  it affected your household.
+
+  % if grievance_stage == "hearing":
+  Include when your informal meeting happened and why the problem is still unresolved.
+  % endif
+
+  If you may be late, explain why and ask for more time. You do not need
+  to share unrelated private details.
+fields:
+  - What you want the housing authority to know: complaint_facts
+    input type: area
+---
+id: action requested
+question: |
+  What would fix the problem?
+subquestion: |
+  For example, ask the housing authority to correct a rent charge, make a
+  repair, or explain a decision. Be specific about what you want.
+fields:
+  - What you want the housing authority to do: action_requested
+    input type: area
+---
+id: letter date
+question: |
+  What date should be on your letter?
+fields:
+  - Date: letter_date
+    datatype: date
+    default: ${ today() }
+---
+id: preview grievance
+question: |
+  Review your letter
+subquestion: |
   ${ al_recipient_bundle.as_pdf(key='preview') }
 
-  Click the image to open it in a new tab. Click the "Edit answers" button
-  to edit your answers.
+  Check the names, address, facts, and request. You will sign the printed letter.
 
   ${ action_button_html(url_action('review_lt3grievancecomplaint'), label='Edit answers', color='info') }
-  
-  Remember to come back to this window to continue and sign your form.
-continue button field: lt3grievancecomplaint_preview_question    
+continue button field: lt3grievancecomplaint_preview_question
 ---
-id: lt3grievancecomplaint review screen
+id: grievance review
 event: review_lt3grievancecomplaint
 question: |
   Review your answers
 review:
-  - Edit: users.revisit
+  - Edit: eligible_tenant
     button: |
-      **Users**
-
-      % for item in users:
-        * ${ item }
-      % endfor
-  - Edit: signature_date
+      **Current Massachusetts public housing tenant:** ${ word(yesno(eligible_tenant)) }
+  - Edit: housing_program
     button: |
-      **Date of Signature**:
-      ${ signature_date }
-  - Edit: action_requested
+      **Housing program:** ${ {'state': 'State public housing', 'federal': 'Federal public housing', 'unknown': 'I do not know'}[housing_program] }
+  - Edit: grievance_stage
     button: |
-      **Action requested**:
-      ${ action_requested }
+      **Request:** ${ {'initial': 'Start a grievance', 'hearing': 'Hearing after an informal meeting', 'appeal': 'Challenge a hearing or appeal decision'}[grievance_stage] }
+  - Edit: eviction_issue
+    button: |
+      **Housing authority is trying to end your tenancy:** ${ word(yesno(eviction_issue)) }
+  - Edit: users[0].name.first
+    button: |
+      **Your name:** ${ users[0] }
+  - Edit: users[0].address.address
+    button: |
+      **Your address:** ${ users[0].address.on_one_line() }
+  - Edit: housing_authority_name
+    button: |
+      **Housing authority:** ${ housing_authority_name }
+      ${ housing_authority_address }
   - Edit: complaint_facts
     button: |
-      **Complaint facts**:
-      ${ complaint_facts }
----
-id: users.revisit
-continue button field: users.revisit
-question: |
-  Edit users
-subquestion: |
-  ${ users.table }
-
-  ${ users.add_action() }
----
-table: users.table
-rows: users
-columns:
-  - Address: |
-      row_item.address.block() if defined("row_item.address.address") else ""
-  - Signature: |
-      row_item.signature if defined("row_item.signature") else ""
-  - Name: |
-      row_item.name.full() if defined("row_item.name.first") else ""
-edit:
-  - address.address
-  - signature
-  - name.first
-confirm: True
-
+      **What happened:** ${ complaint_facts }
+  - Edit: action_requested
+    button: |
+      **What would fix the problem:** ${ action_requested }
+  - Edit: letter_date
+    button: |
+      **Letter date:** ${ letter_date }
 ---
 id: download lt3grievancecomplaint
 event: lt3grievancecomplaint_download
 question: |
-  All done
+  Download and send your letter
 subquestion: |
-  Thank you ${users}. Your form is ready to download and deliver.
-  
-  View, download and send your form below. Click the "Edit answers" button to fix any mistakes.
+  1. Download, read, print, and sign the letter.
+  2. Deliver it to the housing authority before your deadline.
+  3. Keep a copy and proof of delivery.
+
+  This tool has not sent anything. The instructions explain what to do next.
 
   ${ action_button_html(url_action('review_lt3grievancecomplaint'), label='Edit answers', color='info') }
-  
-  
   ${ al_user_bundle.download_list_html() }
-  
-
-  ${ al_user_bundle.send_button_html(show_editable_checkbox=True) }
-
 progress: 100
 ---
-# ALDocument objects specify the metadata for each template
 objects:
-  - lt3grievancecomplaint_Post_interview_instructions: ALDocument.using(title="Instructions", filename="lt3grievancecomplaint_next_steps.docx", enabled=True, has_addendum=False)
-  - lt3grievancecomplaint_attachment: ALDocument.using(title="Grievance Complaint", filename="lt3grievancecomplaint", enabled=True, has_addendum=False, )
+  - lt3grievancecomplaint_Post_interview_instructions: ALDocument.using(title="Instructions", filename="public_housing_grievance_instructions", enabled=True, has_addendum=False)
+  - lt3grievancecomplaint_attachment: ALDocument.using(title="Grievance letter", filename="public_housing_grievance_letter", enabled=True, has_addendum=False)
+  - al_user_bundle: ALDocumentBundle.using(elements=[lt3grievancecomplaint_Post_interview_instructions, lt3grievancecomplaint_attachment], filename="public_housing_grievance", title="Letter and instructions", enabled=True)
+  - al_recipient_bundle: ALDocumentBundle.using(elements=[lt3grievancecomplaint_attachment], filename="public_housing_grievance_letter", title="Letter for the housing authority", enabled=True)
 ---
-# Bundles group the ALDocuments into separate downloads, such as for court and for the user
-objects:
-  - al_user_bundle: ALDocumentBundle.using(elements=[lt3grievancecomplaint_Post_interview_instructions, lt3grievancecomplaint_attachment], filename="lt3grievancecomplaint", title="All forms to download for your records", enabled=True)
-  - al_recipient_bundle: ALDocumentBundle.using(elements=[lt3grievancecomplaint_attachment],  filename="lt3grievancecomplaint", title="All forms to file", enabled=True)
----
-# Each attachment defines a key in an ALDocument. We use `i` as the placeholder here so the same template is 
-# used for "preview" and "final" keys, and logic in the template checks the value of 
-# `i` to show or hide the user's signature
 attachment:
-  name: Post-interview-Instructions
-  filename: lt3grievancecomplaint_next_steps
+  name: Instructions
+  filename: public_housing_grievance_instructions
   docx template file: lt3grievancecomplaint_next_steps.docx
   variable name: lt3grievancecomplaint_Post_interview_instructions[i]
-  skip undefined: True
   tagged pdf: True
-  signature_fields: ${ users[0].signature }
 ---
 attachment:
-  name: lt3grievancecomplaint
-  filename: lt3grievancecomplaint
+  name: Grievance letter
+  filename: public_housing_grievance_letter
   variable name: lt3grievancecomplaint_attachment[i]
-  skip undefined: True
   docx template file: lt3grievancecomplaint.docx
   tagged pdf: True
-  signature_fields: ${ users[0].signature }
-
-
-
+---
+event: grievance_change_housing
+code: |
+  force_ask('eligible_tenant')
+---
+event: grievance_change_stage
+code: |
+  force_ask('grievance_stage')

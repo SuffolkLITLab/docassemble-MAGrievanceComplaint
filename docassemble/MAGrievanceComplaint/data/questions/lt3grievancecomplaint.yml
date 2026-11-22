@@ -104,9 +104,8 @@ metadata:
   integrated_email_filing: false
   requires_notarization: false
   update_notes: |
-    November 2026 release candidate combines the initial grievance and
-    hearing-request paths. Appeals are linked, not prepared. Legal approval
-    and end-to-end validation are tracked outside this metadata.
+    Combines the initial grievance and hearing-request paths.
+    Links to appeal guidance, UpToCode for repairs, and MADE for eviction court papers.
 ---
 code: |
   AL_DEFAULT_COUNTRY = "US"

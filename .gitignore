@@ -39,3 +39,7 @@ sdist/
 var/
 wheels/
 share/python-wheels/
+
+# Local test artifacts may contain interview sessions
+.alkiln-artifacts/
+runtime_config.json
